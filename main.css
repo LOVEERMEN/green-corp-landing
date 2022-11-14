@@ -3,6 +3,10 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 20px;
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 1;
 }
   body {
     font-family: 'Raleway', sans-serif;
@@ -39,6 +43,7 @@ header {
   .about__sun-image {
     width: 100px;
     height: 100px;
+    position: absolute;
   }
   .about {
     display: inline-flex;
@@ -103,23 +108,14 @@ header {
   font-weight: 600;
   margin-bottom: 15px;
 }
-.form input{
-  font-size: 18px;
-  color:  #213053;
-  height: 60px;
-  padding-left: 20px;
-  padding-right: 20px;
-  border-radius: 15px;
+.form input, .form select {
   border: none;
-}
-.form select{
-  font-size: 18px;
-  color:  #213053;
-  height: 60px;
-  padding-left: 20px;
-  padding-right: 20px;
   border-radius: 15px;
-  border: none;
+  padding: 0 20px;
+  outline: none;
+  font-size: 18px;
+  color: #213053;
+  height: 60px;
 }
 .form__submit{
   font-size: 18px;
@@ -132,19 +128,17 @@ select {
 input {
   outline: none;
 }
-button:hover{
+button:hover {
   background-color: #f6980c;
-  box-shadow: 0 16px 36px #f6980c;
-  opacity:80%;
+  box-shadow: 0 16px 36px rgba(246 152 12 / 20%);
+  transition: background-color 0.3s ease-in;
 }
 .ease-in {
   transition: background-color 0.3s;
 }
-footer{
-  margin-top: 90px;
-  margin-bottom: 90px;
-  margin-left: 20px;
-  margin-right: 20px;
+footer {
+  padding: 90px 20px;
+  font-size: 16px;  
   font-weight: 600;
 }
 .footer__copyright{
@@ -158,6 +152,13 @@ footer{
   display: flex;
   justify-content: center;
 }
+.footer__copy {
+  text-align: center;
+  opacity: 0.5;
+  margin-top: 40px;
+}
+
+
 .footer__group{
   margin-right: 80px;
   
@@ -171,4 +172,19 @@ h3{
   display: flex;
   flex-direction: column;
   margin-bottom:15px;
+}
+@keyframes sun_rotate{
+  0%{
+    transform: rotate(0.5turn);
+  }
+
+  100%{
+    transform: rotate(1turn);
+  }
+}
+.about__sun-image{
+  animation-name:sun_rotate;
+  animation-duration:1.5s ;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear; 
 }
